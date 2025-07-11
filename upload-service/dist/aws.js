@@ -15,12 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.uploadFile = void 0;
 const client_s3_1 = require("@aws-sdk/client-s3");
 const fs_1 = __importDefault(require("fs"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const s3Client = new client_s3_1.S3Client({
     region: "auto",
-    endpoint: "https://a5a0040c5bca269c0e703f855af0ee8f.r2.cloudflarestorage.com",
+    endpoint: process.env.S3_ENDPOINT,
     credentials: {
-        accessKeyId: "d1fa9ede7ec0c452989b3d8250ae3356",
-        secretAccessKey: "84a5226dc2fd3ed9f01d7fb1f0e8c929392407fd826f77bd1c52ed6a022293f0",
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     },
 });
 const uploadFile = (fileName, localFilePath) => __awaiter(void 0, void 0, void 0, function* () {

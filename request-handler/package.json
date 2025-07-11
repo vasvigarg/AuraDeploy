@@ -12,6 +12,7 @@
   "type": "commonjs",
   "dependencies": {
     "@types/express": "^5.0.3",
+    "aws-sdk": "^2.1692.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0"
   },
